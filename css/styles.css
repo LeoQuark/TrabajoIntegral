@@ -1,15 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 body{
-    background-image: url(../img/Blooker20.jpg);
-    background-repeat: no-repeat;
-    background-size: 2560px 1080px;
+  background-image: url(../img/Blooker20.jpg);
+  background-repeat: no-repeat;
+  background-size: 2560px 1080px;
+}
+.col-rg{
+  border-color: black;
+}
+img.dist{
+  width: 450px;
+  height: 450px;
 }
 
-.col-rg{
-      border-color: black;
+nav ul li{
+  border-radius: 5px;
+  transition: 0.2s;
+}
 
-  }
-img.dist{
-    width: 450px;
-    height: 450px;
-  }
+nav ul li:hover{
+  background: #f48702;
+}

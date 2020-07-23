@@ -1,87 +1,107 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link type="text/css" rel="stylesheet" href="css/styles.css">
-    
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/b097035380.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="img/truck.png">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link type="text/css" rel="stylesheet" href="css/styles.css">
 
-    <title>Inicio  |  Grafos</title>
-  </head>
-  
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a  href="index.html"><img src="../TrabajoIntegral/img/truck.png"  alt="Home" width="20" height="20"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
 
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Agregar
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="Camiones.html">Conductor</a>
-              <a class="dropdown-item" href="Centros.html">Centro de distribución</a>
-            </div>
-          <li class="nav-item active">
-            <a class="nav-link" href="Hoja de ruta.html">Hojas de ruta <span class="sr-only">(current)</span></a>
-          </li>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/b097035380.js" crossorigin="anonymous"></script>
+  <link rel="icon" href="img/truck.png">
 
-            <li class="nav-item active">
-              <a class="nav-link" href="nosotros.html">Nosotros <span class="sr-only">(current)</span></a>
-            </li>
-          </li>
-        </ul>
-      </div>
-    </div>
-    </nav>
-      <div class="container bg-white rounded sm-12 shadow-lg p-3 mb-5 mt-5 " >
-          
-        <h1 class="text-center"> Agregar Nuevo Conductor</h1>
-        <hr>     
-          <div class="row">
-              <div class="col-12">
-                <form>
-                    <div class="row">
-                        <div class="col ml-5">
-                          <input type="text" class="form-control mt-2" placeholder="Nombre">
-                          <input type="text" class="form-control mt-4" placeholder="Rut">
-                          <input type="text" class="form-control mt-4" placeholder="Fecha de nacimiento">
-                        </div>
-                      <div class="col mr-5">
-                        <input type="text" class="form-control mt-2" placeholder="Apellido">
-                        <input type="text" class="form-control mt-4" placeholder="Teléfono">
-                        <input type="text" class="form-control mt-4" placeholder="Dirección">
-                      </div>
-                      
-                      
-                    </div>
-                  </form>
-                  
-        
-        <button type="button" class="btn ml-5 mt-3 btn-success btn-sm text-center">Agregar</button>
-                </div>
-                
+  <title>Inicio | Grafos</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+    <div class="container-fluid">
+      <div class="row">
+        <div>
+          <a href="index.html"><img src="img/truck.png" class="pb-1 mx-2" alt="" width="30px" height="30px"></a>
+          <a href="index.html" class="navbar-brand font-weight-bold text-uppercase mx-3">Trabajo Integral</a>
         </div>
       </div>
-    <!-- Optional JavaScript -->
-    <script type="text/javascript" src="js/grafos.js"></script>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-  </body>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbar">
+        <div class="row">
+          <ul class="navbar-nav ml-3">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item active dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Agregar
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="Camiones.html">Conductor</a>
+                <a class="dropdown-item" href="Centros.html">Centro de distribución</a>
+              </div>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="hojaDeRuta.html">Hojas de ruta</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="nosotros.html">Nosotros</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <br><br><br>
+  <div class="container bg-white rounded sm-12 shadow-lg p-3 mb-5 mt-5 ">
+    <h2 class="text-center">Agregar Nuevo Conductor</h1>
+      <hr>
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-8 col-md-12">
+          <form action="">
+            <table class="table table-borderless table-striped table-sm">
+              <tr>
+                <td>Nombre Completo</td>
+                <td><input type="text" class="form-control" placeholder="Nombre y Apellido"></td>
+              </tr>
+              <tr>
+                <td>Rut</td>
+                <td><input type="text" class="form-control" placeholder="Rut"></td>
+              </tr>
+              <tr>
+                <td>Fecha de Nacimiento</td>
+                <td><input type="date" class="form-control" placeholder=""></td>
+              </tr>
+              <tr>
+                <td>Dirección</td>
+                <td><input type="text" class="form-control" placeholder="Dirección"></td>
+              </tr>
+              <tr>
+                <td>Teléfono</td>
+                <td><input type="text" class="form-control" placeholder="959420520"></td>
+              </tr>
+              <tr>
+                <td>E-mail</td>
+                <td><input type="text" class="form-control" placeholder="correo@gmail.com"></td>
+              </tr>
+            </table>
+            <div class="d-flex justify-content-center">
+              <a href="#" class="btn btn-success">Agregar</a>
+            </div>
+          </form>
+        </div>
+      </div>
+  </div>
+  <!-- Optional JavaScript -->
+  <script type="text/javascript" src="js/main.js"></script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="js/jquery-3.5.1.slim.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+
 </html>
