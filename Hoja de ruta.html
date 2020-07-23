@@ -16,7 +16,7 @@
   </head>
   
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a  href="index.html"><img src="../TrabajoIntegral/img/truck.png"  alt="Home" width="20" height="20"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -48,36 +48,30 @@
       </div>
     </div>
     </nav>
-      <div class="container bg-white rounded sm-12 shadow-lg p-3 mb-5 mt-5 " >
-          <div class="row">
-              <div class="col-md-6 col-sm-12">
-                  <h1 class="text-center mt-5">Bienvenido</h1>
-                  <p class="mt-5 ml-5 mr-5">
-                      En esta plataforma podrás tener acceso a tu hoja de ruta diaria de forma simplificada
-                      permitiendo disminuir los tiempos de traslado.
-                      <br>
-                      <br>
-                      Ademas podrás agregar nuevos conductores y centros de distribución
-                      <br>
-                      <br>
-                      Solo debes ingresar los centros de distribucion asignados y la cantidad de productos
-                      por entregar.
-                  </p>
-                    <div class="ml-5 mt-5 mb-5">
-                          <a href="Hoja de ruta.html" class="btn btn-info btn-lg" role="button" aria-disabled="true">Ver tu hoja de ruta</a>
-                          <button class="btn btn-outline-info btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Agregar
-                          </button>
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="Camiones.html">Conductor</a>
-                            <a class="dropdown-item" href="Centros.html">Centro de distribución</a>
-                          </div>
-                        </div>
-              </div>
-              <div class="col-md-6 text-center " ><img src="./img/dist.jpg" alt="img" class="dist img-fluid align-center " >
+      <div class="container bg-white rounded sm-12 shadow-lg p-3 mb-5 mt-5 ">
+        <div class="form-row">
+            <div class="col-6">
+                <h4 class=" text-center mt-4 mb-5">HOJA DE RUTA</h4>
+                <select class="custom-select ">
+                    <option selected>Selecciona un centro de distribución</option>
+                    <option value="1">Centro 1</option>
+                    <option value="2">Centro 2</option>
+                    <option value="3">Centro 3</option>
+                </select></div>
                 
-            </div>
-          </div>
+                <div class="col-6 mt-4 form-group">
+                    <br>
+                    <br>
+                    <br>
+                    <label for="exampleFormControlFile1" class="ml-1">Cantidad elementos a distribuir :</label>
+                    <input type="number" class="text-center mt-1" id="quantity" name="quantity" min="1" max="1000" placeholder="1">
+                    <button type="button" class=" ml-3 btn btn-success btn-sm">Agregar</button>
+                    <button type="button" class="ml-3 btn btn-danger btn-sm ">Eliminar</button>
+                </div>
+            
+        </div>
+        
+        <button type="button" class="ml-1 btn btn-primary ">Finalizar</button>
       </div>
     <!-- Optional JavaScript -->
     <script type="text/javascript" src="js/grafos.js"></script>
