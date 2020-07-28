@@ -1,12 +1,10 @@
 <?php
 
-echo 'CamionEdit.php?id=1&PATENTE';
 
 $id = $_GET['id'];
 
 $PAT = $_GET['PATENTE'];
 
-echo $id;
 
 include_once '../conection/conexion.php';
 
@@ -15,4 +13,4 @@ $sentencia_editar = $pdo->prepare($sql_editar);
 $sentencia_editar -> execute(array($PAT,$id));
 
 
-header('location:Camion.php');
+header('location:camion.php');
