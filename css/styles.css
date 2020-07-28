@@ -1,22 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
-body{
-  background-image: url(../img/Blooker20.jpg);
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+body {
+  /* background-image: url(../img/Blooker20.jpg);
   background-repeat: no-repeat;
-  background-size: 2560px 1080px;
+  background-size: auto; */
+  background: linear-gradient(to right, #ff9a1f, #c66b00);
 }
-.col-rg{
+.col-rg {
   border-color: black;
 }
-img.dist{
+img.dist {
   width: 450px;
   height: 450px;
 }
 
-nav ul li{
+nav ul li {
   border-radius: 5px;
   transition: 0.2s;
 }
 
-nav ul li:hover{
+nav ul li:hover {
   background: #f48702;
 }
