@@ -18,7 +18,7 @@ if(isset($_POST['PATENTE'])){
 }
 
 ?>
-
+<br><br>
 <div class="container bg-white rounded col-8 sm-5 shadow-lg p-3 mb-5 mt-5 ">
   <div class="form-row">
     <div class="col">
@@ -61,3 +61,5 @@ if(isset($_POST['PATENTE'])){
   </div>
   <button type="button" class="ml-3 mt-4 btn btn-primary ">Finalizar</button>
 </div>
+
+<?php include('../static/footer.php'); ?>

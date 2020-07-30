@@ -2,7 +2,8 @@
 include('../static/header.php');
 ?>
 <!-- CONTENIDO -->
-<div class="container bg-white rounded sm-12 shadow-lg p-3 my-5">
+<br><br>
+<div class="container bg-white rounded sm-12 shadow-lg p-3 my-5 slider-updown" id="divIndex">
     <div class="row">
         <div class="col-md-6 col-sm-12">
             <h1 class="text-center mt-5 font-weight-bold title">Bienvenido</h1>
@@ -25,7 +26,7 @@ include('../static/header.php');
             </div>
         </div>
         <div class="col-md-6 text-center ">
-            <img src="../../img/dist.jpg" alt="img" class="dist img-fluid align-center ">
+            <img src="../../img/dist.jpg" alt="img" class="dist img-fluid align-center img-opacity">
         </div>
     </div>
 </div>

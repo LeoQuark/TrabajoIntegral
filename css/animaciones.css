@@ -1,0 +1,48 @@
+.slider-lr {
+  /* animation: tiempo-animacion, fluides, tiempo-despues del load de windows, repeticiones, funcion */
+  animation: 1s ease-in-out 0s 1 sliderLeftToRight;
+}
+.slider-updown {
+  animation: 1s ease-in-out 0s 1 sliderUpToDown;
+}
+.img-opacity {
+  animation: 1.5s ease-in-out 0s 1 imgOpacity;
+}
+@keyframes imgOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes sliderLeftToRight {
+  0% {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(10%);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes sliderUpToDown {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(10%);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

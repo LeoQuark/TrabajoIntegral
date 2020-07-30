@@ -26,183 +26,113 @@ if($_GET){
   $resultado_unico = $gsent_unico->fetch();
 
   }
-
 ?>
 
-<!doctype html>
-<html lang="en">
-
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link type="text/css" rel="stylesheet" href="css/styles.css">
-
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <script src="https://kit.fontawesome.com/b097035380.js" crossorigin="anonymous"></script>
-  <link rel="icon" href="img/truck.png">
-
-  <title>Inicio | Grafos</title>
-</head>
-
-
-
-
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
-    <div class="container-fluid">
-      <div class="row">
-        <div>
-          <a href="index.html"><img src="img/truck.png" class="pb-1 mx-2" alt="" width="30px" height="30px"></a>
-          <a href="index.html" class="navbar-brand font-weight-bold text-uppercase mx-3">Trabajo Integral</a>
-        </div>
+<?php if($_GET): ?>
+<br><br><br>
+<div class="container slider-updown">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-6 col-sm-12 bg-white rounded shadow-lg">
+      <div class="d-flex justify-content-center">
+        <h4 class="text-capitalize mt-3 mb-2">editar camiones</h4>
       </div>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbar">
-        <div class="row">
-          <ul class="navbar-nav ml-3">
-            <li class="nav-item active">
-              <a class="nav-link" href="index.html">Inicio</a>
-            </li>
-            <li class="nav-item active dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Agregar
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="Camiones.html">Camión</a>
-                <a class="dropdown-item" href="Centros.html">Archivo de coordenadas</a>
-              </div>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="hojaDeRuta.html">Hojas de ruta</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="nosotros.html">Nosotros</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </nav>
-  
-  <?php if($_GET): ?>
-  <div class="container bg-white rounded sm-12 shadow-lg p-3 mb-5 mt-5 ">
-    
-
-    <h4 class="text-center mb-3">Editar camiones</h4>
-      <div class="row d-flex justify-content-center">
-        <div class="col-lg-4 col-md-12">
-          <form method="GET" action="camionEdit.php">
-            <table class="table table-borderless table-striped table-sm">
-              <tr>
-                <td>Patente</td>
-                <td><input type="text" class="form-control" placeholder="AABB00" name="PATENTE"
-                 value="<?php echo $resultado_unico['PATENTE'] ?>">
-                 <input type="text" class="d-none" value="<?php echo $resultado_unico['id'] ?>" name="id">
-                 </td>
-                </tr>
-            </table>
-            <div class="mt-1 text-center">
-            <button type="submit" class="btn btn-success ml-5" onclick="correcto()"><span class="fa fa-check" aria-hidden="true"></span></button>
-            
-          </div>
-          </form>
-        </div>
-      </div>
-  </div>
-  <?php endif ?>
-
-  <br><br><br>
-  <div class="container bg-white rounded sm-12 shadow-lg p-3 mb-5 mt-5 ">
-    <h2 class="text-center mb-5">Camiones</h1>
-    
-      <div class="row d-flex justify-content-center">
-        <div class="col-lg-8 col-md-12">
-          <form action="">
-            <table class="table text-center">
-              <thead>
+      <hr>
+      <div class="">
+        <form method="GET" action="camionEdit.php">
+          <div class="">
+            <table class="table table-borderless table-sm table-hover">
+              <thead class="thead-dark">
                 <tr>
-                  <th scope="col">Camión</th>
-                  <th scope="col">Patente</th>
+                  <th scope="col">ID</th>
+                  <th scope="col" class="text-uppercase">patente</th>
                 </tr>
               </thead>
               <tbody>
-              
-              <?php foreach($resultado as $dato): ?>
-                <tr id="eliminar"style="text-transform:uppercase;">
-                  <th scope="row"><?php echo $dato['id'] ?></th>
-                  <td><?php echo $dato['PATENTE'] ?> 
-                  
-                  <a href="eliminar.php?id=<?php echo $dato['id'] ?>"
-                   class="float-right " onclick="return borrar()"><i class="fa fa-trash ml-5" style="color: red"></i></a>
-
-                  <a href="camion.php?id=<?php echo $dato['id'] ?>"
-                   class="float-right"><i class="fa fa-pencil" ></i></a>
-                
-                </td>
-
+                <tr>
+                  <th scope="row"><?php echo $resultado_unico['id']?></th>
+                  <td><input type="text" class="form-control form-control-sm" value="<?php echo $resultado_unico['PATENTE'] ?>" name="PATENTE">
+                  <input type="text" class="d-none" value="<?php echo $resultado_unico['id'] ?>" name="id">
+                  </td>
                 </tr>
-                <?php endforeach ?>  
               </tbody>
             </table>
-          </form>
-        </div>
+          </div>
+          <div class="d-flex justify-content-center my-2 pb-2">
+            <button type="submit" class="btn btn-success" onclick="correcto()"><span class="fa fa-check" aria-hidden="true"></span></button>
+          </div>
+        </form>
       </div>
+    </div>
   </div>
-  
-  <?php if(!$_GET): ?>
-  <div class="container bg-white rounded sm-12 shadow-lg p-3 mb-5 mt-5 ">
-    <h4 class="text-center mb-3">Agregar camiones</h4>
-      <div class="row d-flex justify-content-center">
-        <div class="col-lg-4 col-md-12">
-          <form method="POST">
-            <table class="table table-borderless table-striped table-sm">
-              <tr>
-                <td>Patente</td>
-                <td><input type="text" class="form-control" placeholder="AABB00" 
-                required name="PATENTE"style="text-transform:uppercase;"></td>
-              </tr>
-            </table>
-            <div class="mt-1 text-center">
-            <button type="submit" class="btn btn-success ml-5" onclick="agregar()"><span class="fa fa-plus" 
-            aria-hidden="true"></span></button>
-            </div>
-          </form>
-        </div>
+</div> 
+<!-- Modal -->
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center text-capitalize font-weight-bold pl-2">¡ enhorabuena !</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <div class="modal-body">
+        <p>La patente ha sido actualizada correctamente.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
   </div>
-  <?php endif ?>
+</div> -->
+<?php endif ?>
 
- 
-
-
- 
-<script>
-
-
-function correcto() {
-  alert("Patente actualizada correctamente !");
-}
-
-
-function borrar(){
-  var respuesta = confirm("¿Estás seguro que deseas eliminar esta patente?");
-  if (respuesta == true) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-
-
-
-</script>
+<!-- CONTENIDO -->
+<br><br>
+<div class="container bg-white rounded shadow-lg my-5 slider-lr" id="divCamiones">
+  <div class="row">
+    <div class="col-lg-5 col-sm-12 border-dark">
+      <h4 class="text-center text-capitalize font-weight-bold my-3">agregar camiones</h4>
+      <hr>
+      <form action="" method="POST">
+        <table class="table table-borderless table-hover">
+          <tr>
+            <td class="text-uppercase pt-3">patente</td>
+            <td><input type="text" class="form-control" placeholder="AABB00" 
+            required name="PATENTE"style="text-transform:uppercase;"></td>
+          </tr>
+        </table>
+        <div class="d-flex justify-content-center my-2">
+          <button type="submit" class="btn btn-success">Agregar</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-lg-5 col-sm-12">
+      <h4 class="text-center text-capitalize font-weight-bold my-3">flota de camiones</h4>
+      <div class="d-flex">
+        <table class="table table-sm text-center table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col" class="text-uppercase">patente</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach($resultado as $dato): ?>
+            <tr id="eliminar"style="text-transform:uppercase;">
+              <th scope="row"><?php echo $dato['id'] ?></th>
+              <td><?php echo $dato['PATENTE'] ?> 
+                <a href="eliminar.php?id=<?php echo $dato['id'] ?>"
+                class="float-right " onclick="return borrar()"><i class="fa fa-trash ml-5" style="color: red"></i></a>
+                <a href="camion.php?id=<?php echo $dato['id'] ?>"
+                class="float-right"><i class="fa fa-pencil" ></i></a>
+              </td>
+            </tr>
+            <?php endforeach ?>  
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 
 <?php include('../static/footer.php'); ?>

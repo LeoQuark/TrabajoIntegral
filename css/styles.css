@@ -1,8 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 body {
-  /* background-image: url(../img/Blooker20.jpg);
-  background-repeat: no-repeat;
-  background-size: auto; */
   background: linear-gradient(to right, #ff9a1f, #c66b00);
 }
 .col-rg {

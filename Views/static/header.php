@@ -10,6 +10,7 @@
   <script src="https://kit.fontawesome.com/b097035380.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../../css/bootstrap.min.css">
   <link type="text/css" rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/animaciones.css">
   <link rel="icon" href="../../img/truck.png">
   <title>Inicio | Grafos</title>
 </head>
@@ -54,4 +55,3 @@
             </div>
         </div>
     </nav>
-    <br><br><br>
