@@ -30,9 +30,43 @@ include('../static/header.php');
           <textarea class="form-control" id="editor" rows="3" ></textarea>
         </div>
       </div>
-      <a href="hojaDeRuta.php" class="btn btn-success ml-2 my-3" role="button" aria-disabled="true">Agregar</a>
+      <!-- <a href="hojaDeRuta.php" class="btn btn-success ml-2 my-3" role="button" aria-disabled="true" id="enviar">Agregar</a> -->
+      <button type="button" class="btn btn-success my-3 mx-2" id="enviar">Agregar</button>
     </div>
   </div>
 </div>
+
+<script>
+  const addTexto = document.querySelector("#enviar");
+  addTexto.addEventListener("click",()=>{
+    const texto = document.querySelector("#editor").value;
+    const separar = (str) =>{
+      let aux = str.split(" ");
+      let aux1 = aux[0];
+      let aux2 = aux1.replace(/\n|\r/g,"");
+      let total = aux2.split(";");
+      return total;
+    };
+    // textoPlano es un array con cada valor del txt
+    var textoPlano = separar(texto);
+    // console.log("textoPano: ",textoPlano);
+    var listaValores = [], cont=0, aux=[];
+    for(let i = 0; i<textoPlano.length; i++){
+      let coor=[];
+      if(cont==2){
+        coor.push(textoPlano[i].split(","));
+        aux.push(textoPlano[i].split(","));
+        listaValores.push(aux);
+        cont=0;
+        aux=[];
+      }else{
+        aux.push(textoPlano[i]);
+        cont++;
+      }
+    }
+    console.log("listaValores",listaValores);
+  });
+  
+</script>
 
 <?php include('../static/footer.php'); ?>
