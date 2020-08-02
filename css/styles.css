@@ -18,3 +18,10 @@ nav ul li {
 nav ul li:hover {
   background: #f48702;
 }
+
+.showCoordenadas{
+  display:block;
+}
+.showHojaDeRuta{
+  display:none;
+}
