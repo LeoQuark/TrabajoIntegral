@@ -60,7 +60,7 @@ addTexto.addEventListener("click", () => {
         Ventas.push(aux);
       }
     }
-    console.log(Centros, Ventas)
+    // console.log(Centros, Ventas)
   }
   llenar(Centros, Ventas, listaValores)
 
@@ -93,6 +93,7 @@ addTexto.addEventListener("click", () => {
     menor_hip.hip = aux
     return menor_hip;
   }
+  console.log(Centros, Ventas);
 
   function Ruta(Ventas, Centros) {
     var ruta = []
@@ -105,7 +106,7 @@ addTexto.addEventListener("click", () => {
       ventas_aux = lista_ventas[menor.indice].coordenada
       lista_ventas.splice(menor.indice, 1)
     }
-    console.log(ruta)
+    // console.log(ruta)
   }
   Ruta(Ventas, Centros[0]);
 
@@ -134,12 +135,14 @@ addTexto.addEventListener("click", () => {
                 <div class="col-4">
                   <label for="">Seleccione un centro de distribución</label>
                   <select name="" class="custom-select" id="centroDistribucion-${i}">
-                      <option value="1">centro1</option>
-                  </select>
-                </div>
+                  ${Centros.map(element => (
+        `<option value="${element.nombre}">${element.nombre}</option>`
+      )).join('')}
+                  </select >
+                </div >
                 <div class="col-4">
                   <label for="">Cantidad de puntos de ventas a repartir</label>
-                  <input type="number" class="form-control px-3" id="cantidadPV-${i}" min="1" max="100" value="1">
+                  <input type="number" class="form-control px-3" id="cantidadPV-${i}" min="1" max="100"placeholder="1">
                 </div>
               </div>
               <div class="row d-flex justify-content-center my-3">
@@ -151,56 +154,72 @@ addTexto.addEventListener("click", () => {
               <div class="row d-flex justify-content-center my-3" id="divBotonHR-${i}">
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </div >
+        </div >
+      </div >
       `;
       total_acordeon = total_acordeon + accordion;
       accordion = ``;
-
     }
     accordionCamiones.innerHTML = total_acordeon;
+
+    // for (let i = 1; i <= cantidadCamiones.value; i++) {
+    //   const centroDistribucion = document.querySelector(`#centroDistribucion-${i}`);
+    //   var aux = '';
+    //   for (let j = 0; j < Centros.length; j++) {
+    //     var uwu = `
+    //       <option value="${Centros[j].nombre}">Centro ${Centros[j].nombre}</option>
+    //     `
+    //     aux = aux + uwu;
+    //   }
+    //   centroDistribucion.innerHTML = aux;
+    // }
 
     for (let i = 1; i <= cantidadCamiones.value; i++) {
       const btnCantidadPV = document.querySelector(`#agregarPV-${i}`),
         cantidadPV = document.querySelector(`#cantidadPV-${i}`);
-
       if (cantidadPV.value != " " || cantidadPV.value != null) {
         btnCantidadPV.addEventListener('click', () => {
-          console.log(cantidadPV.value);
+          // console.log(cantidadPV.value);
           const divPuntosVenta = document.querySelector(`#divPuntosVenta-${i}`),
             divBotonHR = document.querySelector(`#divBotonHR-${i}`);
           var total_form = "";
           for (let j = 1; j <= cantidadPV.value; j++) {
             var form = `
-              <div class="col-12">
+              <div class="col-12" >
                 <div class="row d-flex justify-content-center">
                   <div class="col-lg-4 col-sm-12">
                     <label for="">Punto de Venta n°${j}</label>
                     <select name="" id="puntosDeVenta-${i}-${j}" class="custom-select custom-select-sm">
-                        <option value="1">Punto de venta 1</option>
+                      ${Ventas.map(element => (
+              `<option value="${element.nombre}">${element.nombre}</option>`
+            )).join('')}
                     </select>
-                  </div>
+                  </div >
                   <div class="col-lg-4 col-sm-12">
                     <label for="">Ingrese la cantidad de productos</label>
                     <input type="number" class="form-control form-control-sm" id="cantidadProducto-${i}-${j}" min="1" max="1000" value="1">
                   </div>
                 </div>
-              </div>
-              `;
+              </div >`;
             total_form = total_form + form;
             divPuntosVenta.innerHTML = total_form;
           }
           var btn = `
-              <button type="button" class="btn btn-success w-auto" id="btnObtenerHojaRuta-${i}">Obtener hoja de ruta</button>`;
+            <button type="button" class="btn btn-success w-auto" id="btnObtenerHojaRuta-${i}" >Obtener hoja de ruta</button> `;
           divBotonHR.innerHTML = btn;
+          // const btnHojaRuta = document.querySelector(`btnObtenerHojaRuta-${i}`);
+          // btnHojaRuta.addEventListener('click', () => {
+          //   console.log("uwu");
+          // })
         });
       }
+
     }
-    for (let i = 1; i <= cantidadCamiones.value; i++) {
-      const btnHojaRuta = document.querySelector(`#btnObtenerHojaRuta-${i}`);
+    for (let k = 1; k <= cantidadCamiones.length; k++) {
+      const btnHojaRuta = document.querySelector(`#btnObtenerHojaRuta-${k}`);
       btnHojaRuta.addEventListener('click', () => {
-        console.log("SI UWU");
+        console.log("uwu");
       });
     }
 
