@@ -7,7 +7,8 @@ addTexto.addEventListener("click", () => {
     setTimeout(() => {
       showAlert.style.display = "none";
     }, 5000);
-  } else {
+  }
+  else {
     const separar = (str) => {
       let aux = str.split(" ");
       let aux1 = aux[0];
@@ -27,7 +28,8 @@ addTexto.addEventListener("click", () => {
         listaValores.push(aux);
         cont = 0;
         aux = [];
-      } else {
+      }
+      else {
         aux.push(textoPlano[i]);
         cont++;
       }
@@ -106,7 +108,7 @@ addTexto.addEventListener("click", () => {
       ventas_aux = lista_ventas[menor.indice].coordenada
       lista_ventas.splice(menor.indice, 1)
     }
-    // console.log(ruta)
+    return ruta;
   }
   Ruta(Ventas, Centros[0]);
 
@@ -135,9 +137,7 @@ addTexto.addEventListener("click", () => {
                 <div class="col-4">
                   <label for="">Seleccione un centro de distribución</label>
                   <select name="" class="custom-select" id="centroDistribucion-${i}">
-                  ${Centros.map(element => (
-        `<option value="${element.nombre}">${element.nombre}</option>`
-      )).join('')}
+                  
                   </select >
                 </div >
                 <div class="col-4">
@@ -153,27 +153,29 @@ addTexto.addEventListener("click", () => {
               </div>
               <div class="row d-flex justify-content-center my-3" id="divBotonHR-${i}">
               </div>
+              <hr>
+              <div class="row d-flex justify-content-center my-3" id="divHojaDeRuta-${i}">
+              </div>
             </div>
           </div >
         </div >
-      </div >
-      `;
+      </div >`;
       total_acordeon = total_acordeon + accordion;
-      accordion = ``;
     }
     accordionCamiones.innerHTML = total_acordeon;
 
-    // for (let i = 1; i <= cantidadCamiones.value; i++) {
-    //   const centroDistribucion = document.querySelector(`#centroDistribucion-${i}`);
-    //   var aux = '';
-    //   for (let j = 0; j < Centros.length; j++) {
-    //     var uwu = `
-    //       <option value="${Centros[j].nombre}">Centro ${Centros[j].nombre}</option>
-    //     `
-    //     aux = aux + uwu;
-    //   }
-    //   centroDistribucion.innerHTML = aux;
-    // }
+    //AGREGAR OPTION AL SELECT DE CENTRO
+    var total_op = "";
+    for (let i = 1; i <= cantidadCamiones.value; i++) {
+      const centroDistribucion = document.querySelector(`#centroDistribucion-${i}`);
+      for (let j = 0; j < Centros.length; j++) {
+        var op = `<option value="${Centros[j].nombre}">${Centros[j].nombre}</option>`;
+        total_op = total_op + op;
+      }
+      centroDistribucion.innerHTML = total_op;
+      total_op = "";
+    }
+
 
     for (let i = 1; i <= cantidadCamiones.value; i++) {
       const btnCantidadPV = document.querySelector(`#agregarPV-${i}`),
@@ -191,9 +193,7 @@ addTexto.addEventListener("click", () => {
                   <div class="col-lg-4 col-sm-12">
                     <label for="">Punto de Venta n°${j}</label>
                     <select name="" id="puntosDeVenta-${i}-${j}" class="custom-select custom-select-sm">
-                      ${Ventas.map(element => (
-              `<option value="${element.nombre}">${element.nombre}</option>`
-            )).join('')}
+                      
                     </select>
                   </div >
                   <div class="col-lg-4 col-sm-12">
@@ -201,29 +201,108 @@ addTexto.addEventListener("click", () => {
                     <input type="number" class="form-control form-control-sm" id="cantidadProducto-${i}-${j}" min="1" max="1000" value="1">
                   </div>
                 </div>
-              </div >`;
+              </div > `;
             total_form = total_form + form;
             divPuntosVenta.innerHTML = total_form;
           }
-          var btn = `
-            <button type="button" class="btn btn-success w-auto" id="btnObtenerHojaRuta-${i}" >Obtener hoja de ruta</button> `;
+          var btn = `<button type="button" class="btn btn-success w-auto" id="btnObtenerHojaRuta-${i}"> Obtener hoja de ruta</button> `;
           divBotonHR.innerHTML = btn;
-          // const btnHojaRuta = document.querySelector(`btnObtenerHojaRuta-${i}`);
-          // btnHojaRuta.addEventListener('click', () => {
-          //   console.log("uwu");
-          // })
+
+          // RELLENA LOS OPTION DEL SELECT DE OS PUNTOS DE VENTAS
+          var total_op2 = "";
+          for (let a = 1; a <= cantidadPV.value; a++) {
+            const cantidadProducto = document.querySelector(`#puntosDeVenta-${i}-${a}`);
+            for (let b = 0; b < Ventas.length; b++) {
+              // IF
+              var op2 = `<option value="${Ventas[b].nombre}">${Ventas[b].nombre}</option>`;
+              total_op2 = total_op2 + op2;
+            }
+            cantidadProducto.innerHTML = total_op2;
+            total_op2 = "";
+          }
+          var arrayVentas = [], arrayProductos = [];
+          const btnHojaRuta = document.querySelector(`#btnObtenerHojaRuta-${i}`);
+          btnHojaRuta.addEventListener('click', () => {
+            const centroDistribucion = document.querySelector(`#centroDistribucion-${i}`);
+            console.log(centroDistribucion.value);
+            for (let b = 1; b <= cantidadPV.value; b++) {
+              const puntosDeVenta = document.querySelector(`#puntosDeVenta-${i}-${b}`),
+                cantidadProducto = document.querySelector(`#cantidadProducto-${i}-${b}`);
+              arrayVentas.push(puntosDeVenta.value);
+              arrayProductos.push(cantidadProducto.value);
+            }
+
+            function objeto(Ventas, arrayVentas) {
+              var objVentas = []
+              for (let i = 0; i < arrayVentas.length; i++) {
+                for (let j = 0; j < Ventas.length; j++) {
+                  if (arrayVentas[i] == Ventas[j].nombre) {
+                    var aux = new Punto(Ventas[j].nombre, Ventas[j].coordenada)
+                    objVentas.push(aux)
+                  }
+                }
+              }
+              return objVentas;
+            }
+
+            function objd(Centros, NombreCentro) {
+              var objCentro = []
+              for (let i = 0; i < Centros.length; i++) {
+                if (Centros[i].nombre == NombreCentro) {
+                  var aux = new Punto(Centros[i].nombre, Centros[i].coordenada)
+                  objCentro.push(aux)
+                }
+              }
+              return objCentro;
+            }
+
+            var ventasObj = objeto(Ventas, arrayVentas);
+            var centroObj = objd(Centros, centroDistribucion.value);
+            var rutaFinal = Ruta(ventasObj, centroObj[0]);
+            console.log("ventas", ventasObj, "productos", arrayProductos, "centro", centroObj);
+            console.log("ruta", rutaFinal);
+            const divHojaDeRuta = document.querySelector(`#divHojaDeRuta-${i}`);
+            var textoHR = `
+            <div class="col-12 pt-2">
+              <h4 class="text-center text-uppercase font-weight-bold my-2">hoja de ruta</h4>
+              <hr>
+              <p>El orden que debe seguir el camion es:</p>
+              <br>
+              <div class="row d-flex justify-content-center">
+                <div>
+                  <table class="table table-borderless table-hover text-center">
+                    <thead class="thead-dark">
+                        <th scope="col">#</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Coordenadas (X,Y)</th>
+                    </thead>
+                    <tbody id="orden-${i}">
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            `;
+            divHojaDeRuta.innerHTML = textoHR;
+            const orden = document.querySelector(`#orden-${i}`);
+            var total_orden = "";
+            for (let h = 0; h < rutaFinal.length; h++) {
+              var ord = `
+                  <tr>
+                      <th scope="row">${h + 1}</th>
+                      <td>${rutaFinal[h].nombre}</td>
+                      <td>${rutaFinal[h].coordenada}</td>
+                  </tr>`;
+              total_orden = total_orden + ord;
+            }
+            orden.innerHTML = total_orden;
+          })
+
+
         });
       }
-
     }
-    for (let k = 1; k <= cantidadCamiones.length; k++) {
-      const btnHojaRuta = document.querySelector(`#btnObtenerHojaRuta-${k}`);
-      btnHojaRuta.addEventListener('click', () => {
-        console.log("uwu");
-      });
-    }
-
   });
-
 });
+
 
