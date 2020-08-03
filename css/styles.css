@@ -25,3 +25,6 @@ nav ul li:hover {
 .showHojaDeRuta{
   display:none;
 }
+.showAlert{
+  display:none;
+}

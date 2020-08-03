@@ -37,7 +37,7 @@
                             <a class="nav-link" href="index.html">Inicio</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="coordenadas.html">Hoja de ruta</a>
+                            <a class="nav-link" href="hojaDeRuta.html">Hoja de ruta</a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="nosotros.html">Nosotros</a>
@@ -102,6 +102,14 @@
                             <button type="button" class="btn btn-success my-3 mx-2" id="enviar">Agregar</button>
                         </div>
                     </div>
+                    <div class="showAlert slider-updown">
+                        <div class="d-flex justify-content-center">
+                            <div class="alert-danger py-1 px-1 w-75">
+                                <p><strong class="text-capitalize mx-3">¡ error !</strong> Debes seleccionar un archivo
+                                    de texto para agregar las coordenadas iniciales.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -109,49 +117,37 @@
     <!-- hoja de ruta -->
     <br><br>
     <div class="showHojaDeRuta">
-        <div class="container bg-white rounded col-8 sm-5 shadow-lg p-3 mb-5 mt-5 slider-lr">
+        <!-- CANTIDAD DE CAMIONES -->
+        <div class="container bg-white rounded shadow-lg p-3 mb-5 mt-5 slider-lr">
             <div class="form-row">
                 <div class="col">
-                    <h4 class=" text-center mt-4 mb-5">HOJA DE RUTA</h4>
-                    <div class="col-lg-4 col-sm-12">
-                        <h6 class="ml-1">Para comenzar selecciona tu camión</h6>
-                        <select class="custom-select mb-2 ">
-
-                        </select>
-                    </div>
-                    <div class="col-lg-7 col-sm-12">
-                        <hr>
-                    </div>
-                    <div class="col-12">
-                        <div class="mb-3 ml-2">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                                    value="option1" checked>
-                                <label class="form-check-label" for="exampleRadios1">Centro de distribución</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                                    value="option2">
-                                <label class="form-check-label" for="exampleRadios2">Punto de venta</label>
-                            </div>
-                        </div>
-                        <select class="custom-select col-lg-4 col-sm-12 ">
-                            <option selected>Selecciona una opción</option>
-                            <option value="1">Centro 1</option>
-                            <option value="2">Centro 2</option>
-                            <option value="3">Centro 3</option>
-                        </select>
-                        <label for="exampleFormControlFile1" class="ml-1">Cantidad elementos a distribuir :</label>
-                        <input type="number" class="text-center mt-1" id="quantity" name="quantity" min="1" max="1000"
-                            placeholder="1">
-                        <button type="button" class=" ml-3 btn btn-success btn-sm">Agregar</button>
-                        <button type="button" class="ml-3 btn btn-danger btn-sm ">Eliminar</button>
+                    <h4 class=" text-center mt-4 mb-3">HOJA DE RUTA</h4>
+                    <hr class="col-8">
+                    <div class="text-center col-12">
+                        <h6 class="ml-1">Para comenzar selecciona la cantidad de camiones con los que deseas trabajar
+                        </h6>
+                        <label for="exampleFormControlFile1" class="ml-1"></label>
+                        <input type="number" class="text-center mt-1" id="cantidadCamiones" name="quantity" min="1"
+                            max="1000" placeholder="1">
+                        <button type="button" class=" ml-3 mb-1 btn btn-primary btn-sm"
+                            id="btnCamiones">Continuar</button>
                     </div>
                 </div>
             </div>
-            <button type="button" class="ml-3 mt-4 btn btn-primary ">Finalizar</button>
+        </div>
+        <!-- ACORDEON -->
+        <div class="container bg-white rounded shadow-lg slider-lr">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-12 my-2">
+                    <div class="accordion" id="accordionCamiones">
+                        <!-- INFO DE CAMIONES -->
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <br><br>
     <!-- FOOTER -->
     <footer class="fixed-bottom">
         <div class="container-fluid bg-white">
