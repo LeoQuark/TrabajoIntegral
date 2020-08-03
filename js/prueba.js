@@ -36,34 +36,39 @@ addTexto.addEventListener("click", () => {
     showHojaDeRuta.style.display = "block";
     addTexto.disbled = true;
   }
-});
-//DECLARACION DEL OBJETO 
+
+///--------------------------------------------------------------------------------------
+  //DECLARACION DEL OBJETO 
 function Punto(nombre,coordenada){
   this.nombre = nombre,	
   this.coordenada = coordenada
 }
-//EJEMPLOS
-var Ventas = []
- Ventas[0]= new Punto(["870"],["24","47"])	
- Ventas[1]= new Punto(["420"],["29","9"])	
- Ventas[2]= new Punto(["345"],["30","52"])	
+var Ventas = [], Centros = []
+function llenar(Centros, Ventas, listaValores){
+  for(let i=0;i<listaValores.length;i++){
+    var aux = new Object()
+    aux.nombre = listaValores[i][1]
+    aux.coordenada = listaValores[i][2]
+    if(listaValores[i][0] === "C"){ //CENTROS
+      Centros.push(aux);
+    }
+    if(listaValores[i][0] === "P"){ //PUNTOS DE VENTA
+      Ventas.push(aux);
+    }
+  }
+  console.log(Centros,Ventas)
+}
+llenar(Centros,Ventas,listaValores)
 
 
-var Centros= new Punto(["300"],["12","58"])	
-
-//console.log(Ventas)
-//console.log(Centros)
 
 
-//var Camiones = [], PtosVenta = [], Centros = []
-
-
-function Hipotenusas(CordenadaInicial, Ventas){
+function Hipotenusas(CoordenadaInicial, Ventas){
   var hip = [], x ,y, suma, h
   //console.log(Ventas[0].coordenada)
   for(let i=0;i<Ventas.length;i++){
-    x = CordenadaInicial[0] - Ventas[i].coordenada[0]
-    y = CordenadaInicial[1] - Ventas[i].coordenada[1]
+    x = CoordenadaInicial[0] - Ventas[i].coordenada[0]
+    y = CoordenadaInicial[1] - Ventas[i].coordenada[1]
     x = Math.abs(x), y =  Math.abs(y)
     suma = Math.pow(x,2) + Math.pow(y,2)
     h = Math.sqrt(suma)
@@ -101,4 +106,8 @@ function Ruta(Ventas, Centros){
   }
   console.log(ruta)
 }
-Ruta(Ventas,Centros)
+Ruta(Ventas,Centros[0])
+
+
+});
+
